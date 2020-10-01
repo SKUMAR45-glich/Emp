@@ -7,14 +7,13 @@ namespace Employee
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAYS = 2;
-        public const int MAX_HRS_IN_NORTH = 10;
-        static void int EmpWage()
+        /*public const int EMP_RATE_PER_HOUR = 20;
+        public const int NUM_OF_WORKING_DAYS = 20;
+        public const int MAX_HRS_IN_NORTH = 100;*/
+        public static int EmpWage(string company, int empRate, int numofDays, int maxHours)
         {
-            //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-            while (totalEmpHrs <= MAX_HRS_IN_NORTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+            while (totalEmpHrs <= maxHours && totalWorkingDays < numofDays)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -34,13 +33,26 @@ namespace Employee
                 totalEmpHrs + = empHrs;
                 Console.WriteLine("Date:" + totalWorkingDays + "Emp Hrs:" + empHrs);
             }
-            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total Emp Wage:" + totalEmpWage);
-            //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
+            int totalEmpWage = totalEmpHrs * rate;
+            Console.WriteLine("Total Emp Wage of company"+company +"is" +totalEmpWage);
+            return totalEmpWage;
+
         }
+
+        //{
+        //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
+
+        /*while (totalEmpHrs <= MAX_HRS_IN_NORTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+        {*/
+        //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
+        //}
         public static void Main(string[] args)
         {
-            EmpWage();
+            string company = Console.ReadLine();
+            int rate = Convert.ToInt32(Console.ReadLine());
+            int hour = Convert.ToInt32(Console.ReadLine());
+            int days = Convert.ToInt32(Console.ReadLine());
+            EmpWage(company, int rate, int days, int hour);
         }
     }
 }
