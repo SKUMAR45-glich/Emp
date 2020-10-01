@@ -3,17 +3,26 @@
 namespace Employee
 {
 
-    class Program
+    class EmpWageBuilder
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        /*public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAYS = 20;
-        public const int MAX_HRS_IN_NORTH = 100;*/
-        public static int EmpWage(string company, int empRate, int numofDays, int maxHours)
+        private string company;
+        private int empRatePerHour;
+        private int numofWorkingDays;
+        private int maxHoursPerMonth;
+        private int totalEmpWage;
+        public EmpWageBuilder(string company, int empRatePerHour, int numofWorkingDays, int maxHoursPerMonth)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.numofWorkingDays = numofWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+        }
+        public void ComputeEmpWage()
         {
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
-            while (totalEmpHrs <= maxHours && totalWorkingDays < numofDays)
+            while (totalEmpHrs <= this.maxHoursPerMonth && totalWorkingDays < this.numofWorkingDays)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -30,15 +39,13 @@ namespace Employee
                         empHrs = 0;
                         break;
                 }
-                totalEmpHrs + = empHrs;
+                totalEmpHrs += empHrs;
                 Console.WriteLine("Date:" + totalWorkingDays + "Emp Hrs:" + empHrs);
             }
-            int totalEmpWage = totalEmpHrs * rate;
+            totalEmpWage = totalEmpHrs * this.empRatePerHour;
             Console.WriteLine("Total Emp Wage of company"+company +"is" +totalEmpWage);
-            return totalEmpWage;
 
         }
-
         //{
         //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
 
@@ -46,13 +53,18 @@ namespace Employee
         {*/
         //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
         //}
-        public static void Main(string[] args)
+       
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            string company = Console.ReadLine();
-            int rate = Convert.ToInt32(Console.ReadLine());
-            int hour = Convert.ToInt32(Console.ReadLine());
-            int days = Convert.ToInt32(Console.ReadLine());
-            EmpWage(company, int rate, int days, int hour);
+            EmpWageBuilder abc = new EmpWageBuilder("abc", 10, 1, 10);
+            EmpWageBuilder def = new EmpWageBuilder("abc", 20, 2, 0);
+            abc.ComputeEmpWage();
+            def.ComputeEmpWage();
+
         }
     }
 }
