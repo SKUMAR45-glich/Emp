@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace Employee
 {
     public class CompanyEmpWage
@@ -25,8 +24,16 @@ namespace Employee
             return "Total Emp Wage for company:" + this.company + "is" + this.totalEmpWage;
         }
     }
-
-    public class EmpWageBuilder
+   
+    interface addWage
+    {
+        void addCompanyEmpWage(string company, int empRatePerHour, int numofWorkingDays, int maxHoursPerMonth);
+    }
+    interface computeWage
+    {
+        void computeEmpWage();
+    }
+    public class EmpWageBuilder: addWage, computeWage
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
@@ -73,21 +80,13 @@ namespace Employee
                 totalEmpHrs += empHrs;
                 Console.WriteLine("Date:" + totalWorkingDays + "Emp Hrs:" + empHrs);
             }
-            /*totalEmpWage = totalEmpHrs * this.empRatePerHour;
-            Console.WriteLine("Total Emp Wage of company" + company + "is" + totalEmpWage);*/
+            int totalEmpWage = totalEmpHrs * companyEmpWage.empRatePerHour;
+            Console.WriteLine("Total Emp Wage of company" + companyEmpWage.company + "is" + totalEmpWage);
             return totalEmpHrs * companyEmpWage.empRatePerHour;
 
         }
-        //{
-        //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
-
-        /*while (totalEmpHrs <= MAX_HRS_IN_NORTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
-        {*/
-        //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
-        //}
 
     }
-
     class Program
     {
         static void Main(string[] args)
