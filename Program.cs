@@ -1,17 +1,18 @@
-﻿using System;
+using System;
 
 namespace Employee
 {
 
-    class Program
+    class Demo
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
         public const int MAX_HRS_IN_MONTH = 100;
-        static void int EmpWage()
+        public static void EmpWage()
         {
+           
             //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
             while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
@@ -31,16 +32,21 @@ namespace Employee
                         empHrs = 0;
                         break;
                 }
-                totalEmpHrs + = empHrs;
+                totalEmpHrs += empHrs;
                 Console.WriteLine("Date:" + totalWorkingDays + "Emp Hrs:" + empHrs);
             }
             int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
             Console.WriteLine("Total Emp Wage:" + totalEmpWage);
             //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
         }
+
+    }
+    class Main2
+    {
         public static void Main(string[] args)
         {
-            EmpWage();
+            Demo program1 = new Demo();
+            Demo.EmpWage();
         }
     }
 }
