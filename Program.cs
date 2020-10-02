@@ -10,7 +10,7 @@ namespace Employee
         /*public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
         public const int MAX_HRS_IN_NORTH = 100;*/
-        public static int EmpWage(string company, int empRate, int numofDays, int maxHours)
+        public static void EmpWage(string company, int empRate, int numofDays, int maxHours)
         {
             int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
             while (totalEmpHrs <= maxHours && totalWorkingDays < numofDays)
@@ -35,24 +35,17 @@ namespace Employee
             }
             int totalEmpWage = totalEmpHrs * rate;
             Console.WriteLine("Total Emp Wage of company"+company +"is" +totalEmpWage);
-            return totalEmpWage;
+            //return totalEmpWage;
 
         }
 
-        //{
-        //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
-
-        /*while (totalEmpHrs <= MAX_HRS_IN_NORTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
-        {*/
-        //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
-        //}
         public static void Main(string[] args)
         {
             string company = Console.ReadLine();
             int rate = Convert.ToInt32(Console.ReadLine());
             int hour = Convert.ToInt32(Console.ReadLine());
             int days = Convert.ToInt32(Console.ReadLine());
-            EmpWage(company, int rate, int days, int hour);
+            EmpWage(company, rate, days, hour);
         }
     }
 }
