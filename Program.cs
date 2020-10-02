@@ -1,5 +1,3 @@
-//Exception 103
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,34 +30,33 @@ namespace Employee
 
     public class EmpWageBuilder
     {
+        ArrayList arlist = new ArrayList();
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         public int numofCompany = 0;
         private CompanyEmpWage[] companyEmpWages;
+        public EmpWageBuilder()
+        {
+            //this.arlist = new ArrayList<CompanyEmpWage>();
+        }
         public void addCompanyEmpWage(string company, int empRatePerHour, int numofWorkingDays, int maxHoursPerMonth)
         {
-            var arlist = new ArrayList();
+            
             arlist.Add(new CompanyEmpWage(company, empRatePerHour, numofWorkingDays, maxHoursPerMonth));
 
-            /*var arlist = new ArrayList();
-            arlist.Add(new CompanyEmpWage("abc", 101, 10, 13000));
-            arlist.Add(new CompanyEmpWage("def", 101, 10, 13000));
-            arlist.Add(new CompanyEmpWage("ghi", 101, 10, 13000));
-            arlist.Add(new CompanyEmpWage("fgh", 101, 10, 13000));*/
+           
             numofCompany++;
         }
 
-        public EmpWageBuilder()
-        {
-            this.companyEmpWages = new CompanyEmpWage[5];
-        }
+       
         public void computeEmpWage()
         {
-            for (int i = 0; i < numofCompany; i++)
+            foreach (CompanyEmpWage companyEmpWage in this.arlist)
             {
-                companyEmpWages[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWages[i]));
-                Console.WriteLine(this.companyEmpWages[i].toString());
+                companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.toString());
             }
+
         }
         public int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
@@ -88,7 +85,7 @@ namespace Employee
             return totalEmpHrs * companyEmpWage.empRatePerHour;
 
         }
-     
+
     }
 
     class Program
@@ -97,7 +94,7 @@ namespace Employee
         {
             //CompanyEmpWage companyEmpWage = new CompanyEmpWage();
             EmpWageBuilder empWageBuilder = new EmpWageBuilder();
-            
+
             empWageBuilder.addCompanyEmpWage("abc", 20, 2, 20);
             empWageBuilder.addCompanyEmpWage("def", 40, 1, 10);
             empWageBuilder.computeEmpWage();
