@@ -73,19 +73,11 @@ namespace Employee
                 totalEmpHrs += empHrs;
                 Console.WriteLine("Date:" + totalWorkingDays + "Emp Hrs:" + empHrs);
             }
-            /*totalEmpWage = totalEmpHrs * this.empRatePerHour;
-            Console.WriteLine("Total Emp Wage of company" + company + "is" + totalEmpWage);*/
+           
             return totalEmpHrs * companyEmpWage.empRatePerHour;
 
         }
-        //{
-        //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
-
-        /*while (totalEmpHrs <= MAX_HRS_IN_NORTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
-        {*/
-        //Console.WriteLine("Total Emp Wage :" + totalEmpWage);
-        //}
-
+        
     }
 
     class Program
