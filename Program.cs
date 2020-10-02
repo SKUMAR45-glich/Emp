@@ -9,7 +9,7 @@ namespace Employee
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
-        public const int MAX_HRS_IN_<MONTH = 100;
+        public const int MAX_HRS_IN_MONTH = 100;
         static void int EmpWage()
         {
             //Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
