@@ -15,7 +15,7 @@ namespace Employee
             int empHrs = 0;
             int empWage = 0;
             int totalEmpWage = 0;
-            for (int day = 0, day< NUM_OF_WORKING_DAYS, day++)
+            for (int day = 0; day<=NUM_OF_WORKING_DAYS; day++)
             {
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
