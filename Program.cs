@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 
 namespace Employee
 {
@@ -17,10 +18,6 @@ namespace Employee
             this.maxHoursPerMonth = maxHoursPerMonth;
         }
         public void setTotalEmpWage(int totalEmpWage)
-        {
-            this.totalEmpWage = totalEmpWage;
-        }
-        public void setDailyEmpWage(int totalEmpWage)
         {
             this.totalEmpWage = totalEmpWage;
         }
@@ -50,7 +47,7 @@ namespace Employee
             for (int i = 0; i < numofCompany; i++)
             {
                 companyEmpWages[i].setTotalEmpWage(this.computeEmpWage1(this.companyEmpWages[i]));
-                companyEmpWages[i].setDailyEmpWage(this.computeEmpWage2(this.companyEmpWages[i]));
+                companyEmpWages[i].setTotalEmpWage(this.computeEmpWage2(this.companyEmpWages[i]));
                 Console.WriteLine(this.companyEmpWages[i].toString());
             }
 
@@ -102,15 +99,17 @@ namespace Employee
                         empHrs = 0;
                         break;
                 }
-                //totalEmpHrs += empHrs;
+                totalEmpHrs += empHrs;
                 Console.WriteLine("Emp Hrs:" + empHrs);
             }
 
             return empHrs * companyEmpWage.empRatePerHour;
 
         }
+
     }
 
+    
     class Program
     {
         static void Main(string[] args)
